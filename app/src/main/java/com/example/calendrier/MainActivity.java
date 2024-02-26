@@ -1,9 +1,7 @@
 package com.example.calendrier;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         final int eventIndex = eventsList.indexOf(event);
 
-        eventTitle.setText(event.getTitle() + " - " + dateText);
+        eventTitle.setText(event.getTitle());
         eventDetails.setText(event.getDescription());
 
         btnDelete.setTag(eventIndex);
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     private void showAddEventPopup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.activity_add_event, null);
+        View dialogView = inflater.inflate(R.layout.add_event, null);
         builder.setView(dialogView);
 
         builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
